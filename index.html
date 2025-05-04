@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anime Önerme Sistemi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Hamburger Menü (3 çizgi) -->
+  <div id="menu-toggle" class="menu-toggle">
+    &#9776; <!-- 3 çizgi -->
+  </div>
+
+  <!-- Menü -->
+  <div id="menu" class="menu">
+    <ul>
+      <li><a href="javascript:void(0)" onclick="showAnimeRecommendations()">Anime Öner</a></li>
+      <li><a href="javascript:void(0)" onclick="showAdminRecommendations()">Admin'in Tavsiyesi</a></li> <!-- Admin Tavsiyesi -->
+    </ul>
+  </div>
+
+  <header>
+    <div class="siyah-alan"></div> <!-- Tanjiro görselinin yer alacağı siyah alan -->
+    <div class="header-content">
+      <img src="tanjiro2.png" alt="Tanjiro" class="tanjiro-img"> <!-- Tanjiro görseli -->
+      <h1>Anime Tanıtım</h1>
+    </div>
+  </header>
+
+  <main>
+    <!-- Anime Listeleme Alanı -->
+    <div class="anime-container">
+      <div class="anime" onclick="showDetails('naruto')">
+        <img src="naruto.jpg" alt="Naruto" />
+        <h2>Naruto</h2>
+        <button onclick="rateAnime('naruto')">Puanla</button>
+      </div>
+      <div class="anime" onclick="showDetails('demon-slayer')">
+        <img src="demon.jpg" alt="Demon Slayer" />
+        <h2>Demon Slayer</h2>
+        <button onclick="rateAnime('demon-slayer')">Puanla</button>
+      </div>
+      <div class="anime" onclick="showDetails('attack-on-titan')">
+        <img src="titan.jpg" alt="Attack on Titan" />
+        <h2>Attack on Titan</h2>
+        <button onclick="rateAnime('attack-on-titan')">Puanla</button>
+      </div>
+      <div class="anime" onclick="showDetails('jujutsu-kaisen')">
+        <img src="justu.jpg" alt="Jujutsu Kaisen" />
+        <h2>Jujutsu Kaisen</h2>
+        <button onclick="rateAnime('jujutsu-kaisen')">Puanla</button>
+      </div>
+      <div class="anime" onclick="showDetails('astolfo')">
+        <img src="femboy.jpg" alt="Astolfo (Kıyamete Kader)" />
+        <h2>Astolfo (Kıyamete Kader)</h2>
+        <button onclick="rateAnime('astolfo')">Puanla</button>
+      </div>
+      <div class="anime" onclick="showDetails('highschool-dxd')">
+        <img src="dxd.jpg" alt="High School DxD" />
+        <h2>High School DxD</h2>
+        <button onclick="rateAnime('highschool-dxd')">Puanla</button>
+      </div>
+      <!-- Yeni Anime -->
+      <div class="anime" onclick="showDetails('berserk')">
+        <img src="berserk.jpg" alt="Berserk" />
+        <h2>Berserk</h2>
+        <button onclick="rateAnime('berserk')">Puanla</button>
+      </div>
+      <!-- Yeni eklenen anime -->
+      <div class="anime" onclick="showDetails('call-of-the-night')">
+        <img src="vampir.jpg" alt="Call of the Night" />
+        <h2>Call of the Night</h2>
+        <button onclick="rateAnime('call-of-the-night')">Puanla</button>
+      </div>
+      <!-- Yeni eklenen anime -->
+      <div class="anime" onclick="showDetails('my-hero-academia')">
+        <img src="kahraman.jpg" alt="My Hero Academia" />
+        <h2>My Hero Academia</h2>
+        <button onclick="rateAnime('my-hero-academia')">Puanla</button>
+      </div>
+      <!-- Yeni eklenen anime -->
+      <div class="anime" onclick="showDetails('one-piece')">
+        <img src="korsan.jpg" alt="One Piece" />
+        <h2>One Piece</h2>
+        <button onclick="rateAnime('one-piece')">Puanla</button>
+      </div>
+      <!-- Yeni eklenen anime -->
+      <div class="anime" onclick="showDetails('bleach')">
+        <img src="bleach.jpg" alt="Bleach" />
+        <h2>Bleach</h2>
+        <button onclick="rateAnime('bleach')">Puanla</button>
+      </div>
+      <!-- Yeni eklenen anime - Bunny Girl Senpai -->
+      <div class="anime" onclick="showDetails('bunny-girl-senpai')">
+        <img src="tavşan.jpg" alt="Bunny Girl Senpai" />
+        <h2>Bunny Girl Senpai</h2>
+        <button onclick="rateAnime('bunny-girl-senpai')">Puanla</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="anime-details" class="anime-details" style="display: none;">
+    <button onclick="closeDetails()">Kapat</button>
+    <h2 id="anime-title"></h2>
+    <img id="anime-image" src="" alt="Anime Resmi" />
+    <p id="anime-description"></p>
+    <h3>Mevcut Puan: <span id="anime-rating">0</span></h3>
+    <button onclick="rateAnime()">Puanla</button>
+    
+    <!-- Anime İzleme Linki (İzle Butonu) -->
+    <a href="#" id="anime-watch-link" target="_blank" class="watch-button">İzle</a>
+
+    <!-- Sosyal Medya Paylaşım Butonları -->
+    <div class="social-share">
+      <a href="#" id="share-facebook" target="_blank">
+        <img src="facebook-icon.png" alt="Facebook" />
+      </a>
+      <a href="#" id="share-twitter" target="_blank">
+        <img src="twitter-icon.png" alt="Twitter" />
+      </a>
+      <a href="#" id="share-whatsapp" target="_blank">
+        <img src="whatsapp-icon.png" alt="WhatsApp" />
+      </a>
+      <a href="#" id="share-linkedin" target="_blank">
+        <img src="linkedin-icon.png" alt="LinkedIn" />
+      </a>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

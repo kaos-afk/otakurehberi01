@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notlar Uygulaması</title>
+</head>
+<body>
+
+  <!-- HTML içeriği buraya gelecek -->
+  
+  <!-- Firebase SDK ve uygulama kodunu modül olarak ekliyoruz -->
+  <script type="module">
+    // Sayfa tamamen yüklendiğinde bu işlev çalışacak
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("Başlatıldı!"); // Kontrol için
+
+      // Firebase SDK modüllerini import ediyoruz
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+      import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+      
+      // Firebase yapılandırma ayarları
+      const firebaseConfig = {
+        apiKey: "AIzaSyArmR4InhjEbtMaQwYBB0gjnNlfX7gqn9Q",
+        authDomain: "gizli-notlar-b505c.firebaseapp.com",
+        projectId: "gizli-notlar-b505c",
+        storageBucket: "gizli-notlar-b505c.firebasestorage.app",
+        messagingSenderId: "6980096634",
+        appId: "1:6980096634:web:0567ebd39bfa7a9c0821c3",
+        measurementId: "G-9HSBXRNF69"
+      };
+
+      // Firebase'i başlatıyoruz
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app); // Firestore veritabanına erişim sağlıyoruz
+
+      // HTML öğelerini alıyoruz
+      const form = document.getElementById("noteForm");
+      const input = document.getElementById("noteInput");
+      const notesList = document.getElementById("notesList");
+
+      // Form gönderildiğinde yapılacak işlem
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault(); // Formun sayfa yeniden yüklemesini engelliyoruz
+        const content = input.value.trim(); // Kullanıcının girdiği notu alıyoruz
+        if (!content) return; // Eğer içerik boşsa işlem yapmıyoruz
+
+        try {
+          // Yeni notu Firestore veritabanına ekliyoruz
+          await addDoc(collection(db, "notlar"), {
+            text: content,
+            created: serverTimestamp() // Notun oluşturulma zamanını kaydediyoruz
+          });
+          console.log("✅ Not başarıyla eklendi:", content);
+          input.value = ""; // Girdi kutusunu temizliyoruz
+          await loadNotes(); // Notları tekrar yükle
+        } catch (error) {
+          console.error("❌ Not eklenemedi:", error); // Hata durumunda hata mesajını yazdırıyoruz
+        }
+      });
+
+      // Notları Firestore'dan yükleme işlemi
+      async function loadNotes() {
+        notesList.innerHTML = ""; // Eski notları temizliyoruz
+        try {
+          // "notlar" koleksiyonundaki verileri zaman sırasına göre sıralıyoruz
+          const q = query(collection(db, "notlar"), orderBy("created", "desc"));
+          const snapshot = await getDocs(q); // Veritabanından verileri alıyoruz
+          if (snapshot.empty) {
+            notesList.innerHTML = "<p class='text-gray-400'>Henüz hiç not bırakılmamış.</p>";
+            return;
+          }
+
+          // Notları ekrana yazdırıyoruz
+          snapshot.forEach(doc => {
+            const data = doc.data(); // Veriyi alıyoruz
+            const p = document.createElement("div"); // Yeni bir <div> oluşturuyoruz
+            p.className = "bg-gray-800 p-3 rounded shadow"; // CSS sınıfları ekliyoruz
+            p.textContent = data.text || "(Boş içerik)"; // İçeriği yazıyoruz, boşsa "(Boş içerik)"
+            notesList.appendChild(p); // <div>'i listeye ekliyoruz
+          });
+
+          console.log("📥 Notlar yüklendi, toplam:", snapshot.size); // Toplam not sayısını yazdırıyoruz
+        } catch (error) {
+          console.error("❌ Notlar yüklenemedi:", error); // Hata durumunda hata mesajını yazdırıyoruz
+        }
+      }
+
+      loadNotes(); // Sayfa yüklendiğinde ilk defa notları yükle
+    });
+  </script>
+
+</body>
+</html>
