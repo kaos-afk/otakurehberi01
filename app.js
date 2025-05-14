@@ -63,7 +63,13 @@ const animeData = {
     title: "Bunny Girl Senpai",
     image: "tavşan.jpg",
     description: "Bunny Girl Senpai (Rascal Does Not Dream of Bunny Girl Senpai), Sakuta Azusagawa adlı bir gencin, ünlü aktris Mai Sakurajima ile tanışmasını konu alır. Mai, etrafındaki insanlar tarafından görünmez hale gelmiştir. Sakuta, Mai'yi fark eden tek kişi olarak ona yardımcı olur. Hikaye, \"Puberty Syndrome\" adı verilen paranormal bir durumu işler ve her karakterin duygusal ve psikolojik sorunlarını keşfeder. Anime, romantizm, gizem ve psikolojik dramayı birleştirir."
+  },
+  "spy-x-family": {
+    title: "SPYxFAMILY",
+    image: "spy.jpg",
+    description: "Usta casus Twilight, daha iyi bir dünya adına tehlikeli görevlerde gizli göreve geldiğinde yaptığı işte en iyisidir. Ama en büyük imkansız görevi aldığında -evlenip çocuk sahibi olduğunda- sonunda aklını kaçırmış olabilir! Başkalarına bağımlı olmayan Twilight, seçkin bir özel okula sızma görevi için hem bir eş hem de bir çocuk temin etmek için işini yarıda bırakmıştır"
   }
+  
 };
 
 // Menü açma/kapama
