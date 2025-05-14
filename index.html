@@ -5,36 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Anime Önerme Sistemi</title>
   <link rel="stylesheet" href="style.css" />
-  
-  <!-- Google AdSense Scripti -->
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3351183622661304"
      crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <!-- Hamburger Menü (3 çizgi) -->
   <div id="menu-toggle" class="menu-toggle">
-    &#9776; <!-- 3 çizgi -->
-  </div>
+    &#9776; </div>
 
-  <!-- Menü -->
   <div id="menu" class="menu">
     <ul>
       <li><a href="javascript:void(0)" onclick="showAnimeRecommendations()">Anime Öner</a></li>
-      <li><a href="javascript:void(0)" onclick="showAdminRecommendations()">Admin'in Tavsiyesi</a></li> <!-- Admin Tavsiyesi -->
-    </ul>
+      <li><a href="javascript:void(0)" onclick="showAdminRecommendations()">Admin'in Tavsiyesi</a></li> </ul>
   </div>
 
   <header>
-    <div class="siyah-alan"></div> <!-- Tanjiro görselinin yer alacağı siyah alan -->
-    <div class="header-content">
-      <img src="tanjiro2.png" alt="Tanjiro" class="tanjiro-img"> <!-- Tanjiro görseli -->
-      <h1>Anime Tanıtım</h1>
+      <img src="" alt="" class="tanjiro-img"> <h1>Otoku Rehberi</h1>
     </div>
   </header>
 
   <main>
-    <!-- Anime Listeleme Alanı -->
     <div class="anime-container">
       <div class="anime" onclick="showDetails('naruto')">
         <img src="naruto.jpg" alt="Naruto" />
@@ -66,51 +57,48 @@
         <h2>High School DxD</h2>
         <button onclick="rateAnime('highschool-dxd')">Puanla</button>
       </div>
-      <!-- Yeni Anime -->
       <div class="anime" onclick="showDetails('berserk')">
         <img src="berserk.jpg" alt="Berserk" />
         <h2>Berserk</h2>
         <button onclick="rateAnime('berserk')">Puanla</button>
       </div>
-      <!-- Yeni eklenen anime -->
       <div class="anime" onclick="showDetails('call-of-the-night')">
         <img src="vampir.jpg" alt="Call of the Night" />
         <h2>Call of the Night</h2>
         <button onclick="rateAnime('call-of-the-night')">Puanla</button>
       </div>
-      <!-- Yeni eklenen anime -->
       <div class="anime" onclick="showDetails('my-hero-academia')">
         <img src="kahraman.jpg" alt="My Hero Academia" />
         <h2>My Hero Academia</h2>
         <button onclick="rateAnime('my-hero-academia')">Puanla</button>
       </div>
-      <!-- Yeni eklenen anime -->
       <div class="anime" onclick="showDetails('one-piece')">
         <img src="korsan.jpg" alt="One Piece" />
         <h2>One Piece</h2>
         <button onclick="rateAnime('one-piece')">Puanla</button>
       </div>
-      <!-- Yeni eklenen anime -->
       <div class="anime" onclick="showDetails('bleach')">
         <img src="bleach.jpg" alt="Bleach" />
         <h2>Bleach</h2>
         <button onclick="rateAnime('bleach')">Puanla</button>
       </div>
-      <!-- Yeni eklenen anime - Bunny Girl Senpai -->
       <div class="anime" onclick="showDetails('bunny-girl-senpai')">
         <img src="tavşan.jpg" alt="Bunny Girl Senpai" />
         <h2>Bunny Girl Senpai</h2>
         <button onclick="rateAnime('bunny-girl-senpai')">Puanla</button>
       </div>
+      <div class="anime" onclick="showDetails('spy-x-family')">
+        <img src="spy.jpg" alt="SPYxFAMILY" />
+        <h2>SPYxFAMILY</h2>
+        <button onclick="rateAnime('spy-x-family')">Puanla</button>
+      </div>
     </div>
 
-    <!-- Google AdSense Reklam Alanı (Main içi) -->
     <div class="ads-container">
       <ins class="adsbygoogle"
            style="display:block; text-align:center;"
            data-ad-client="ca-pub-3351183622661304"
-           data-ad-slot="1234567890"  <!-- Slot numarasını buraya eklemelisin -->
-           data-ad-format="auto"
+           data-ad-slot="1234567890"  data-ad-format="auto"
            data-full-width-responsive="true"></ins>
       <script>
            (adsbygoogle = window.adsbygoogle || []).push({});
@@ -125,11 +113,9 @@
     <p id="anime-description"></p>
     <h3>Mevcut Puan: <span id="anime-rating">0</span></h3>
     <button onclick="rateAnime()">Puanla</button>
-    
-    <!-- Anime İzleme Linki (İzle Butonu) -->
+
     <a href="#" id="anime-watch-link" target="_blank" class="watch-button">İzle</a>
 
-    <!-- Sosyal Medya Paylaşım Butonları -->
     <div class="social-share">
       <a href="#" id="share-facebook" target="_blank">
         <img src="facebook-icon.png" alt="Facebook" />
