@@ -11,6 +11,18 @@
 </head>
 <body>
 
+  <!-- Bilgilendirme Modalı -->
+  <div id="infoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+    background: rgba(0, 0, 0, 0.7); z-index: 10000; display: flex; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 25px; border-radius: 10px; max-width: 400px; text-align: center; box-shadow: 0 0 10px #000;">
+      <h2>Otoku Rehberi</h2>
+      <p><strong>Site Amacı:</strong> Kullanıcılara anime önerileri sunmak, popüler animeleri tanıtmak ve puanlama yapabilmelerini sağlamak.</p>
+      <p><strong>Kuruluş Tarihi:</strong> 2025</p>
+      <p><strong>Not:</strong> Güvenliğiniz için geliştirici konsoluna şüpheli kod yapıştırmayınız.</p>
+      <button onclick="document.getElementById('infoModal').style.display='none'" style="padding: 8px 16px; margin-top: 15px; cursor: pointer;">Tamam</button>
+    </div>
+  </div>
+
   <div id="menu-toggle" class="menu-toggle">
     &#9776; </div>
 
@@ -24,6 +36,16 @@
       <img src="" alt="" class="tanjiro-img"> <h1>Otoku Rehberi</h1>
     </div>
   </header>
+
+
+  <!-- Eklendi: Otakurehberi Butonu -->
+  <div style="text-align:center; margin-top: 20px;">
+    <a href="https://www.instagram.com/otokurehberi/" target="_blank">
+      <button style="padding: 10px 20px; font-size: 16px; background-color: #ff4081; color: white; border: none; border-radius: 8px; cursor: pointer;">
+        otakurehberi
+      </button>
+    </a>
+  </div>
 
   <main>
     <div class="anime-container">
@@ -91,7 +113,24 @@
         <img src="spy.jpg" alt="SPYxFAMILY" />
         <h2>SPYxFAMILY</h2>
         <button onclick="rateAnime('spy-x-family')">Puanla</button>
-      </div>
+      </div><!-- Diğer animelerin ardından bu satırı ekle -->
+<div class="anime" onclick="showDetails('blue-lock')">
+  <img src="blue-lock.jpg" alt="Blue Lock" />
+  <h2>Blue Lock</h2>
+  <button onclick="rateAnime('monster')">Puanla</button>
+</div><!-- Diğer animelerin ardından bu satırı ekle -->
+<div class="anime" onclick="showDetails('monster')">
+  <img src="monster.jpg"Blue Lock" />
+  <h2>Blue Lock</h2>
+  <button onclick="rateAnime('monster')">Puanla</button>
+</div><div class="anime" onclick="showDetails('dan-da-dan')">
+  <img src="dandadan.jpg" alt="Dan Da Dan" />
+  <h2>Dan Da Dan</h2>
+  <button onclick="rateAnime('dan-da-dan')">Puanla</button>
+</div>
+
+
+
     </div>
 
     <div class="ads-container">
@@ -133,5 +172,5 @@
   </div>
 
   <script src="app.js"></script>
-</body>
-</html>
+
+  <script
