@@ -68,12 +68,33 @@ const animeData = {
     title: "Blue Lock",
     image: "blue-lock.jpg",
     description: "Blue Lock, Japonya'nın en iyi forvetini seçmek için 300 futbolcunun kapalı bir tesiste yarıştığı, rekabet ve ego temalı bir spor animesidir. Ana karakter Isagi, bu zorlu mücadelede kendi oyun stilini bulmaya çalışır."
-   },
+  },
   "dan-da-dan": {
     title: "Dan Da Dan",
     image: "dandadan.jpg",
     description: "Hayaletlerin mi yoksa uzaylıların mı var olduğunu kanıtlamak için iddiaya giren iki lise öğrencisi, korkunç paranormal tehditlerle karşı karşıya kalır, süper güçler kazanır ve hatta belki de birbirlerine aşık olurlar!"
-  }
+  },
+  "hunter x hunter":{
+    title: "hunter x hunter",
+    image: "hunter.jpg",
+    description: "Hunter x Hunter, babasını bulmak için zorlu Avcı sınavına katılan genç Gon'un hikayesini anlatır. Sınavda tanıştığı Killua, Kurapika ve Leorio ile dostluk kurar. Birlikte çeşitli maceralara atılırlar, Nen adı verilen özel güçleri keşfederler ve derin temaları işleyen karmaşık olaylarla karşılaşırlar. Gon'un babasını arayışı, beklenmedik gelişmeler ve karakterlerin büyümesiyle dolu sürükleyici bir yolculuktur."
+  },
+  "Dragon Ball Z": {
+  title: "Dragon Ball Z",
+  image: "dragon.jpg",
+  description: "serisinde Son Goku büyümüş, Chi-Chi ile evlenmiş ve Son Gohan adında bir çocukları olmuştur. Son Goku 24 yaşına girmiştir. Oğlu Son Gohan ise 4 yaşındadır.Ana karakterimiz, İlk seride de olduğu gibi Son Gokudur. Chi-Chi, Gohan'ı büyüyüp bir bilim adamı olması için 4 yaşında ders çalıştırmaya başlatmıştır. Bu yüzden başlarda Goku, oğluna dövüş sanatlarını öğretememiştir.Bu seride Goku geçmisini ve kim olduğunu da öğrenecektir."
+},
+ "MASHLE: MAGIC AND MUSCLES": {
+  title: "MASHLE: MAGIC AND MUSCLES",
+  image: "mashle.jpg",
+  description: "Büyü aleminde sihir her şeydir; herkes onu kullanabilir ve kişinin sosyal statüsü beceri düzeyine göre belirlenir. Mash, ormanın derinliklerinde, dünyanın gidişatından habersiz yaşıyor. Günlük eğitimi sayesinde bir fitness tanrısı haline geldi, ancak hayatını alt üst edebilecek bir sır sakladı; sihir kullanamıyor! Bunu öğrendiğinde, hayatı sona ermek yerine, beklenmedik bir şekilde büyü okuluna kaydolur ve orada rekabeti yenmesi gerekir"
+
+},"Chainsaw Man": {
+  title: "Chainsaw Man",
+  image: "Chainsaw.jpg",
+  description: "Denji'nin basit bir rüyası var - mutlu ve huzurlu bir yaşam yaşamak, sevdiği bir kızla vakit geçirmek. Bununla birlikte, Denji Yakuza tarafından ezici borçlarını ödemek için şeytanları öldürmeye zorlandığı için bu gerçeklikten çok uzaktır. Evcil Şeytan Pochita'yı silah olarak kullanarak, biraz nakit için her şeyi yapmaya hazır."
+},
+
 };
 
 // Detay gösterme fonksiyonu
@@ -84,7 +105,7 @@ function showDetails(animeKey) {
   document.getElementById("anime-title").textContent = anime.title;
   document.getElementById("anime-image").src = anime.image;
   document.getElementById("anime-description").textContent = anime.description;
-  document.getElementById("anime-rating").textContent = anime.rating || 0;
+  document.getElementById("anime-rating").textContent = anime.rating !== undefined ? anime.rating : "Henüz puan verilmedi";
   document.getElementById("anime-details").style.display = "block";
 
   // İzleme linki örnek (isteğe göre özelleştirilebilir)
@@ -105,14 +126,20 @@ function closeDetails() {
   document.getElementById("anime-details").style.display = "none";
 }
 
-// Puan verme
+// Puan verme fonksiyonu (1-10 arası puan kontrolü eklendi)
 function rateAnime(animeKey) {
   if (!animeKey || !animeData[animeKey]) return;
 
-  const currentRating = animeData[animeKey].rating || 0;
-  const newRating = prompt("Bu animeye kaç puan veriyorsun? (1-10)", currentRating);
+  const currentRating = animeData[animeKey].rating || "";
+  let newRating = prompt("Bu animeye kaç puan veriyorsun? (1-10)", currentRating);
   if (newRating !== null) {
-    animeData[animeKey].rating = newRating;
-    document.getElementById("anime-rating").textContent = newRating;
+    newRating = Number(newRating);
+    if (Number.isInteger(newRating) && newRating >= 1 && newRating <= 10) {
+      animeData[animeKey].rating = newRating;
+      document.getElementById("anime-rating").textContent = newRating;
+      alert(`${animeData[animeKey].title} animesine ${newRating} puan verildi.`);
+    } else {
+      alert("Lütfen 1 ile 10 arasında bir tam sayı giriniz.");
+    }
   }
 }
