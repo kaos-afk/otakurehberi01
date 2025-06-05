@@ -1,39 +1,28 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anime Önerme Sistemi</title>
   <link rel="stylesheet" href="style.css" />
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3351183622661304"
-      crossorigin="anonymous"></script>
-
-  <script type="text/javascript" data-cfasync="false">
-  /*<![CDATA[/* */
-  (function(){var t=window,y="d20af60e859e390b1c0ce98eb7166327",g=[["siteId",942+187-145+5198875],["minBid",2.00],["popundersPerIP","2,2"],["delayBetween",10],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],x=["d3d3LmFudGlhZGJsb2Nrc3lzdGVtcy5jb20vTGJsakEvUW0vZ2hvcHNjb3RjaC5taW4uanM=","ZDNjb2Q4MHRobjdxbmQuY2xvdWRmcm9udC5uZXQvamN1c3RvbS5taW4uanM="],f=-1,e,v,k=function(){clearTimeout(v);f++;if(x[f]&&!(1773269537000<(new Date).getTime()&&1<f)){e=t.document.createElement("script");e.type="text/javascript";e.async=!0;var h=t.document.getElementsByTagName("script")[0];e.src="https://"+atob(x[f]);e.crossOrigin="anonymous";e.onerror=k;e.onload=function(){clearTimeout(v);t[y.slice(0,16)+y.slice(0,16)]||k()};v=setTimeout(k,5E3);h.parentNode.insertBefore(e,h)}};if(!t[y]){try{Object.freeze(t[y]=g)}catch(e){}k()}})();
-  /*]]>/* */
-  </script>
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-72V35YZS2R"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-72V35YZS2R');
-  </script>
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
 
-  <div id="infoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  <div id="infoModal"
+    style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
     background: rgba(0, 0, 0, 0.7); z-index: 10000; display: flex; justify-content: center; align-items: center;">
     <div style="background: white; padding: 25px; border-radius: 10px; max-width: 400px; text-align: center; box-shadow: 0 0 10px #000;">
       <h2>Otoku Rehberi</h2>
       <p><strong>Site Amacı:</strong> Kullanıcılara anime önerileri sunmak, popüler animeleri tanıtmak ve puanlama yapabilmelerini sağlamak.</p>
       <p><strong>Kuruluş Tarihi:</strong> 2025</p>
       <p><strong>Not:</strong> Güvenliğiniz için geliştirici konsoluna şüpheli kod yapıştırmayınız.</p>
-      <button onclick="document.getElementById('infoModal').style.display='none'" style="padding: 8px 16px; margin-top: 15px; cursor: pointer;">Tamam</button>
+      <button onclick="document.getElementById('infoModal').style.display='none'"
+        style="padding: 8px 16px; margin-top: 15px; cursor: pointer;">Tamam</button>
     </div>
   </div>
 
@@ -43,17 +32,21 @@
   <div id="menu" class="menu">
     <ul>
       <li><a href="javascript:void(0)" onclick="showAnimeRecommendations()">Anime Öner</a></li>
-      <li><a href="javascript:void(0)" onclick="showAdminRecommendations()">Admin'in Tavsiyesi</a></li> </ul>
+      <li><a href="javascript:void(0)" onclick="showAdminRecommendations()">Admin'in Tavsiyesi</a></li>
+    </ul>
   </div>
 
   <header>
-      <img src="" alt="" class="tanjiro-img"> <h1>Otoku Rehberi</h1>
-    </div> </header>
+    <img src="" alt="" class="tanjiro-img">
+    <h1>Otoku Rehberi</h1>
+    </div>
+  </header>
 
 
   <div style="text-align:center; margin-top: 20px;">
     <a href="https://www.instagram.com/otokurehberi/" target="_blank">
-      <button style="padding: 10px 20px; font-size: 16px; background-color: #ff4081; color: white; border: none; border-radius: 8px; cursor: pointer;">
+      <button
+        style="padding: 10px 20px; font-size: 16px; background-color: #ff4081; color: white; border: none; border-radius: 8px; cursor: pointer;">
         otakurehberi
       </button>
     </a>
@@ -129,27 +122,43 @@
       <div class="anime" onclick="showDetails('blue-lock')">
         <img src="blue-lock.jpg" alt="Blue Lock" />
         <h2>Blue Lock</h2>
-        <button onclick="rateAnime('blue-lock')">Puanla</button> </div>
-      <div class="anime" onclick="showDetails('monster')">
-        <img src="monster.jpg" alt="Monster" />
-        <h2>Monster</h2>
-        <button onclick="rateAnime('monster')">Puanla</button>
+        <button onclick="rateAnime('blue-lock')">Puanla</button>
       </div>
       <div class="anime" onclick="showDetails('dan-da-dan')">
         <img src="dandadan.jpg" alt="Dan Da Dan" />
         <h2>Dan Da Dan</h2>
         <button onclick="rateAnime('dan-da-dan')">Puanla</button>
       </div>
+      <div class="anime" onclick="showDetails('hunter x hunter')">
+        <img src="hunter.jpg" alt="hunter x hunter" />
+        <h2>hunter x hunter</h2>
+        <button onclick="rateAnime('hunter x hunter')">Puanla</button>
+      </div>
+      <div class="anime" onclick="showDetails('Dragon Ball Z')">
+        <img src="dragon.jpg" alt="Dragon Ball Z" />
+        <h2>hunter x hunter</h2>
+        <button onclick="rateAnime('Dragon Ball Z')">Puanla</button>
+      </div>
+      <div class="anime" onclick="showDetails('MASHLE: MAGIC AND MUSCLES')">
+        <img src="mashle.jpg" alt="Dragon Ball Z" />
+        <h2>MASHLE: MAGIC AND MUSCLES</h2>
+        <button onclick="rateAnime('MASHLE: MAGIC AND MUSCLES')">Puanla</button>
+      </div>
+      <div class="anime" onclick="showDetails('Chainsaw Man')">
+        <img src="Chainsaw.jpg" alt="Dragon Ball Z" />
+        <h2>Chainsaw Man</h2>
+        <button onclick="rateAnime('Chainsaw Man')">Puanla</button>
+      </div>
+
+
+
     </div>
 
     <div class="ads-container">
-      <ins class="adsbygoogle"
-           style="display:block; text-align:center;"
-           data-ad-client="ca-pub-3351183622661304"
-           data-ad-slot="1234567890"  data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+      <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-client="ca-pub-3351183622661304"
+        data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
       <script>
-           (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
     </div>
   </main>
@@ -182,5 +191,24 @@
 
   <script src="app.js"></script>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Bilgilendirme modalini 1 saniye sonra göster
+      setTimeout(function () {
+        document.getElementById('infoModal').style.display = 'flex';
+      }, 1000);
+
+      // Menü toggle
+      var menuToggle = document.getElementById('menu-toggle');
+      var menu = document.getElementById('menu');
+
+      menuToggle.addEventListener('click', function () {
+        menu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    });
+  </script>
+
 </body>
+
 </html>
